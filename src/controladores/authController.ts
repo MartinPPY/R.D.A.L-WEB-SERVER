@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import usuarioPrisma from '../modelos/usuario.js';
 import { hashPassword } from "../servicios/passwordService.js";
+import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 
 export const logIn = async (req: Request, res: Response): Promise<void> => {
 
@@ -59,7 +60,17 @@ export const registroUsuario = async (req: Request, res: Response): Promise<void
         });
         res.status(201).json({ message: 'usuario creado!' });
 
-    } catch (error: any) {
+    } catch (error: PrismaClientKnownRequestError | any) {
+        
+        if (error.meta.target[0] === 'email') {
+            res.status(400).json({ message: 'El email ya existe en los registros' });
+            return
+        }
+
+        if (error.meta.target[0] === 'fono') {
+            res.status(400).json({ message: 'El numero de telefono ya existe en los registros' });
+            return
+        }
         console.error(error)
         res.status(500).json({ message: 'error desconocido' });
     }
