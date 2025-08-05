@@ -1,11 +1,44 @@
 import { Request, Response } from "express";
 import usuarioPrisma from '../modelos/usuario.js';
-import { hashPassword } from "../servicios/passwordService.js";
+import { comparePasswords, hashPassword } from "../servicios/passwordService.js";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
+import { Usuario } from "../modelos/interfaces.js";
+import { generateToken } from "../servicios/authService.js";
 
 export const logIn = async (req: Request, res: Response): Promise<void> => {
+    const { email, password } = req.body;
 
-    res.status(200).json({ message: 'login!' })
+    if (!email) {
+        res.status(400).json({ message: 'El email es obligatorio' });
+        return
+    }
+
+    if (!password) {
+        res.status(400).json({ message: 'La contraseña es obligatoria' });
+        return
+    }
+
+    try {
+        const usuario: Usuario | null = await usuarioPrisma.findUnique({ where: { email: email } })
+        if (!usuario) {
+            res.status(404).json({ message: 'Usuario no encontrado!' })
+            return
+        }
+        const passwordMacth: boolean = await comparePasswords(password, usuario.password)
+        if (!passwordMacth) {
+            res.status(401).json({ message: 'credenciales invalidas!' })
+            return
+        }
+
+        const token = generateToken(usuario)
+
+        res.status(200).json({ token })
+
+    } catch (error: any) {
+        console.error(error)
+        res.status(500).json({ message: 'Error desconocido' })
+    }
+
 
 }
 
@@ -61,7 +94,7 @@ export const registroUsuario = async (req: Request, res: Response): Promise<void
         res.status(201).json({ message: 'usuario creado!' });
 
     } catch (error: PrismaClientKnownRequestError | any) {
-        
+
         if (error.meta.target[0] === 'email') {
             res.status(400).json({ message: 'El email ya existe en los registros' });
             return

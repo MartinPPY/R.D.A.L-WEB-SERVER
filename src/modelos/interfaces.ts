@@ -1,11 +1,9 @@
-import { Tipo_Usuario } from "@prisma/client"
-
-export interface tipoUsuario {
+export interface TipoUsuario {
     id: number,
     nombre: string
 }
 
-export interface usuario {
+export interface Usuario {
     id: number,
     nombres: string,
     apellido_paterno: string,
@@ -14,5 +12,11 @@ export interface usuario {
     fono: number
     password: string
     tipo_usuario_id: number
-    tipo_usuario?: Tipo_Usuario
+    tipo_usuario?: TipoUsuario
+}
+
+export interface Payload{
+    id:number,
+    email:string,
+    tipoUsuadio:number
 }
