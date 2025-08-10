@@ -12,7 +12,8 @@ export interface Usuario {
     fono: number
     password: string
     tipo_usuario_id: number
-    tipo_usuario?: TipoUsuario
+    tipo_usuario?: TipoUsuario,
+    areaTrabajoId:number | null
 }
 
 export interface Payload{

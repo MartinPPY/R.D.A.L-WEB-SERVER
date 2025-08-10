@@ -1,0 +1,68 @@
+[
+    {
+        "run": "20456213-5",
+        "nombre": "Camila",
+        "apellidoPaterno": "Morales",
+        "apellidoMaterno": "Vega",
+        "fono": 987654321,
+        "email": "camila.morales@duoc.cl",
+        "tipoUsuario": 1,
+        "password": "CamilaPass#2025",
+        "areaTrabajoId": 1
+    },
+    {
+        "run": "19234567-8",
+        "nombre": "Javier",
+        "apellidoPaterno": "Pérez",
+        "apellidoMaterno": "López",
+        "fono": 981234567,
+        "email": "javier.perez@duocuc.cl",
+        "tipoUsuario": 1,
+        "password": "JaviSecure123#",
+        "areaTrabajoId": 2
+    },
+    {
+        "run": "22345678-9",
+        "nombre": "Valentina",
+        "apellidoPaterno": "Fuentes",
+        "apellidoMaterno": "García",
+        "fono": 965432198,
+        "email": "valentina.fuentes@duoc.cl",
+        "tipoUsuario": 1,
+        "password": "ValePass#789",
+        "areaTrabajoId": 3
+    },
+    {
+        "run": "21398765-4",
+        "nombre": "Tomás",
+        "apellidoPaterno": "Rojas",
+        "apellidoMaterno": "Soto",
+        "fono": 972345678,
+        "email": "tomas.rojas@duocuc.cl",
+        "tipoUsuario": 1,
+        "password": "TomasSecure#55",
+        "areaTrabajoId": 4
+    },
+    {
+        "run": "20321456-2",
+        "nombre": "Fernanda",
+        "apellidoPaterno": "Castillo",
+        "apellidoMaterno": "Paredes",
+        "fono": 976543210,
+        "email": "fernanda.castillo@duoc.cl",
+        "tipoUsuario": 1,
+        "password": "FerPass#2025",
+        "areaTrabajoId": 5
+    },
+    {
+        "run": "21456789-7",
+        "nombre": "Diego",
+        "apellidoPaterno": "Muñoz",
+        "apellidoMaterno": "Hernández",
+        "fono": 974321098,
+        "email": "diego.munoz@duocuc.cl",
+        "tipoUsuario": 1,
+        "password": "DiegoSafe#444",
+        "areaTrabajoId": 6
+    }
+]
