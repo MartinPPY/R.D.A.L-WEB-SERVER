@@ -140,6 +140,4 @@ export const verificarUser = async (req: Request, res: Response): Promise<void> 
 
     res.status(200).json({ usuario })
 
-
-
 }

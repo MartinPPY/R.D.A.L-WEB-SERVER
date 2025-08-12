@@ -13,11 +13,24 @@ export interface Usuario {
     password: string
     tipo_usuario_id: number
     tipo_usuario?: TipoUsuario,
-    areaTrabajoId:number | null
+    areaTrabajoId: number | null
 }
 
-export interface Payload{
-    id:number,
-    email:string,
-    tipoUsuadio:number
+export interface Payload {
+    id: number,
+    email: string,
+    tipoUsuadio: number
+}
+
+export interface AlumnoActividades {
+    fecha: string,
+    inicio: string,
+    termino: string,
+    area: string
+
+}
+
+export interface PrismaActividad{
+    
+
 }
